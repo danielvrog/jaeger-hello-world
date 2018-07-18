@@ -42,7 +42,7 @@ def redis_push_data(span, data, repo_name):
 
 def redis_read_data(repo_name):
     jsonify_clean_data = redis_client.blpop(REDIS_KEY_CLEAN_DATA_RETURN.format(repo_name))[1]
-    return json.loads(jsonify_clean_data)
+    return json.loads(jsonify_clean_data.decode())
 
 
 @app.route("/git/<owner>/<repo>")
