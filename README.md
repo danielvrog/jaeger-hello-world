@@ -11,7 +11,10 @@ In this part we seprated our **HUGE** monolith into microservices.
 
 To run
 ------
-
+* Start Redis server
+    ```bash
+    docker run -d -p 6379:6379 --name my-redis redis
+    ```
 * Run the server
     ```bash
     (python main.py & python get_repo_data.py & python clean_repo_data.py)
