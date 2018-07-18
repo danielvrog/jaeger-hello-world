@@ -12,7 +12,7 @@ REDIS_KEY_CLEAN_DATA_RETURN = "clean-data-from-git-{}"
 def clean_github_data():
     while True:
         raw_msg = redis_client.blpop(REDIS_KEY_CLEAN_DATA)[1]
-        msg = json.loads(raw_msg)
+        msg = json.loads(raw_msg.decode())
         repo_contributors = msg["data"]
         queue_to_return_msg = msg["queue_to_return_msg"]
         contributors_to_commit = {}
